@@ -1,21 +1,21 @@
 version: '3.8'
 services:
-backend:
-build: ./backend
-ports:
-- '8000:8000'
-environment:
-- PYTHONUNBUFFERED=1
-depends_on: []
-volumes:
-- ./backend:/app
-frontend:
-build: ./frontend
-ports:
-- '5173:5173'
-environment:
-- CHOKIDAR_USEPOLLING=true
-volumes:
-- ./frontend:/app
-depends_on:
-- backend
+  backend:
+    build: ./backend
+    ports:
+      - '8000:8000'
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on: []
+    volumes:
+      - ./backend:/app
+  frontend:
+    build: ./frontend
+    ports:
+      - '5173:5173'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
